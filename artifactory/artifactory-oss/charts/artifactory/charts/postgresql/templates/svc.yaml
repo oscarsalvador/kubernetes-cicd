@@ -1,0 +1,23 @@
+---
+# Source: artifactory-oss/charts/artifactory/charts/postgresql/templates/svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: artifactory-postgresql
+  labels:
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-10.3.18
+    app.kubernetes.io/instance: artifactory
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+  namespace: artifactory
+spec:
+  type: ClusterIP
+  ports:
+    - name: tcp-postgresql
+      port: 5432
+      targetPort: tcp-postgresql
+  selector:
+    app.kubernetes.io/name: postgresql
+    app.kubernetes.io/instance: artifactory
+    role: primary

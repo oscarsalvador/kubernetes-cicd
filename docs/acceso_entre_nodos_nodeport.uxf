@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>Space for diagram notes-profile
+</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>350</x>
+      <y>170</y>
+      <w>630</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>Cluster
+--
+transparency=0
+
+layer=-50
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>560</x>
+      <y>210</y>
+      <w>400</w>
+      <h>620</h>
+    </coordinates>
+    <panel_attributes>Namespace
+--
+bg=red
+transparency=90
+
+layer=-5
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>370</x>
+      <y>480</y>
+      <w>570</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Nodo 2
+--
+valign=bottom
+halign=left
+transparency=90
+
+bg=dark_gray
+layer=-4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>590</x>
+      <y>310</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 1
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>740</x>
+      <y>350</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl Nodo2IP:30171
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>590</x>
+      <y>540</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 2
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>730</x>
+      <y>580</y>
+      <w>190</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>$curl Nodo1IP:30170
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>370</x>
+      <y>250</y>
+      <w>570</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Nodo 1 (master)
+--
+transparency=90
+valign=bottom
+halign=left
+
+bg=dark_gray
+
+layer=-4
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>600</x>
+      <y>690</y>
+      <w>150</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Servicio
+--
+halign=left
+transparency=70
+layer=-2
+bg=blue
+valign=bottom
+
+port 3000
+   - NodePort 30170
+type: NodePort
+
+Selector para 
+contenedor 1
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>580</x>
+      <y>280</y>
+      <w>340</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Pod
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>580</x>
+      <y>510</y>
+      <w>340</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Pod
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>380</x>
+      <y>400</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>port 30170
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>380</x>
+      <y>640</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>port 30171
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>250</y>
+      <w>360</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;120.0;10.0;160.0;40.0;10.0;340.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>380</x>
+      <y>710</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Kubernetes se queda
+con la config del .yml
+al llegar trafico al puerto del nodo, se redirije a docker
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>770</x>
+      <y>690</y>
+      <w>150</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Servicio
+--
+halign=left
+transparency=70
+layer=-2
+bg=blue
+valign=bottom
+
+targetPort 3000
+	    - NodePort 30171
+type: NodePort
+
+Selector para 
+contenedor 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>360</y>
+      <w>410</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;230.0;30.0;290.0;10.0;130.0;390.0;10.0</additional_attributes>
+  </element>
+</diagram>

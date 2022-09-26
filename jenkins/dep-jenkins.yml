@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-jenkins
+  namespace: jenkins
+spec:
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      serviceAccountName: sac-jenkins
+      securityContext:
+            fsGroup: 1000 
+            runAsUser: 1000
+      containers:
+      - name: jenkins-local
+        env:
+        - name: JAVA_OPTS
+          value: "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.ContainerExecDecorator.websocketConnectionTimeout=300 -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true"
+        image: docker.io/library/jenkins-local:latest
+        imagePullPolicy: Never
+
+        #asi se pueden ejecutar comandos, dejar al contenedor sobado para que no se estampe, debug
+        #command: ["sleep"]
+        #args: ["1000000"]
+
+        startupProbe:
+          failureThreshold: 600
+          httpGet:
+            path: /login
+            port: http
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        livenessProbe:
+          failureThreshold: 6
+          httpGet:
+            path: /login
+            port: http
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /login
+            port: http
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 3
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 50000
+          name: jnlp
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 600m
+            memory: 1024Mi
+          limits:
+            cpu: 1200m
+            memory: 4196Mi
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: pvc-jenkins-home

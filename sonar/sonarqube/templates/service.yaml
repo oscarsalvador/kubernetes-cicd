@@ -1,0 +1,28 @@
+---
+# Source: sonarqube/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: sonar-sonarqube
+  namespace: "sonar"
+  labels:
+    app.kubernetes.io/name: sonarqube
+    helm.sh/chart: sonarqube-1.0.9
+    app.kubernetes.io/instance: sonar
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: "Cluster"
+  loadBalancerSourceRanges: []
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - name: elastic
+      port: 9001
+      protocol: TCP
+      targetPort: elastic
+  selector:
+    app.kubernetes.io/name: sonarqube
+    app.kubernetes.io/instance: sonar

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-artifactory-postgre
+  namespace: artifactory
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /persistent_volumes/pvc-artifactory/postgre
+    type: ''
+  claimRef:
+    name: data-artifactory-postgresql-0
+    namespace: artifactory

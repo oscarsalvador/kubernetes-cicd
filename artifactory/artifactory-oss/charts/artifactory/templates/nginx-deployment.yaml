@@ -1,0 +1,122 @@
+---
+# Source: artifactory-oss/charts/artifactory/templates/nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artifactory-artifactory-nginx
+  labels:
+    app: artifactory
+    chart: artifactory-107.35.2
+    heritage: Helm
+    release: artifactory
+    component: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: artifactory
+      release: artifactory
+      component: nginx
+  template:
+    metadata:
+      annotations:
+        checksum/nginx-conf: ab832212f6c9459dfc7b8529c2b9dcdccd092121639faa5a8375a8d68a30fe6a
+        checksum/nginx-artifactory-conf: 8c7cb6eedf767e77e0a82ca782603c462145785020a68ce9ee686728e4fb2ee6
+      labels:
+        app: artifactory
+        chart: artifactory-107.35.2
+        component: nginx
+        heritage: Helm
+        release: artifactory
+    spec:
+      serviceAccountName: default
+      initContainers:
+      - name: "setup"
+        image: "releases-docker.jfrog.io/jfrog/ubi-minimal:8.5-204"
+        imagePullPolicy: IfNotPresent
+        command:
+        - '/bin/sh'
+        - '-c'
+        - >
+          rm -rfv /var/opt/jfrog/nginx/lost+found;
+          mkdir -p /var/opt/jfrog/nginx/logs;
+        volumeMounts:
+        - mountPath: "/var/opt/jfrog/nginx"
+          name: nginx-volume
+      securityContext:
+        runAsUser: 104
+        fsGroup: 107
+      containers:
+      - name: nginx
+        image: releases-docker.jfrog.io/jfrog/nginx-artifactory-pro:7.35.2
+        imagePullPolicy: IfNotPresent
+        command:
+          - 'nginx'
+          - '-g'
+          - 'daemon off;'
+        ports:
+        # DEPRECATION NOTE: The following is to maintain support for values pre 1.3.1 and
+        # will be cleaned up in a later version
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
+        volumeMounts:
+        - name: nginx-conf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: nginx-artifactory-conf
+          mountPath: "/var/opt/jfrog/nginx/conf.d/"
+        - name: nginx-volume
+          mountPath: "/var/opt/jfrog/nginx"  
+        - name: ssl-certificates
+          mountPath: "/var/opt/jfrog/nginx/ssl"  
+        resources:
+          {}
+        startupProbe:
+          exec:
+            command:
+              - sh
+              - -c
+              - curl -k --fail --max-time 1 http://localhost:80/router/api/v1/system/readiness
+          initialDelaySeconds: 30
+          failureThreshold: 90
+          periodSeconds: 5
+          timeoutSeconds: 5
+          
+        readinessProbe:
+          exec:
+            command:
+              - sh
+              - -c
+              - curl -k --fail --max-time 1 http://localhost:80/router/api/v1/system/readiness
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 10
+          successThreshold: 1
+          
+        livenessProbe:
+          exec:
+            command:
+              - sh
+              - -c
+              - curl -k --fail --max-time 1 http://localhost:80/
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 10
+          successThreshold: 1
+          
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: artifactory-nginx-conf
+      - name: nginx-artifactory-conf
+        configMap:
+          name: artifactory-nginx-artifactory-conf
+      - name: nginx-volume
+        emptyDir: {}
+      - name: ssl-certificates
+        secret:
+          secretName: artifactory-nginx-certificate

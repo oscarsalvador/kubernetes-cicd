@@ -1,0 +1,154 @@
+---
+# Source: sonarqube/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonar-sonarqube
+  namespace: "sonar"
+  labels:
+    app.kubernetes.io/name: sonarqube
+    helm.sh/chart: sonarqube-1.0.9
+    app.kubernetes.io/instance: sonar
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sonarqube
+      app.kubernetes.io/instance: sonar
+  template:
+    metadata:
+      annotations:
+        checksum/secret: fbeb66b34027d4fcde01dfd56e06dbe7e70d85d6f3d22db2ef6424fdfaa0549b
+      labels:
+        app.kubernetes.io/name: sonarqube
+        helm.sh/chart: sonarqube-1.0.9
+        app.kubernetes.io/instance: sonar
+        app.kubernetes.io/managed-by: Helm
+    spec:
+      serviceAccountName: sonar-sonarqube-foo
+      
+      affinity:
+        podAffinity:
+          
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/name: sonarqube
+                    app.kubernetes.io/instance: sonar
+                namespaces:
+                  - "sonar"
+                topologyKey: kubernetes.io/hostname
+              weight: 1
+        nodeAffinity:
+          
+      securityContext:
+        fsGroup: 1001
+      initContainers:
+        ## Image that performs the sysctl operation to modify Kernel settings (needed sometimes to avoid boot errors)
+        - name: sysctl
+          image: docker.io/bitnami/bitnami-shell:10-debian-10-r387
+          imagePullPolicy: "IfNotPresent"
+          command:
+            - /bin/bash
+            - -ec
+            - |
+              CURRENT="$(sysctl -n vm.max_map_count)"
+              DESIRED="262144"
+              if [[ "$DESIRED" -gt "$CURRENT" ]]; then
+                  sysctl -w vm.max_map_count=262144
+              fi
+              CURRENT="$(sysctl -n fs.file-max)"
+              DESIRED="65536"
+              if [[ "$DESIRED" -gt "$CURRENT" ]]; then
+                  sysctl -w fs.file-max=65536
+              fi
+          securityContext:
+            privileged: true
+          resources:
+            limits: {}
+            requests: {}
+      containers:
+        - name: sonarqube
+          image: docker.io/bitnami/sonarqube:9.3.0-debian-10-r46
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1001
+          env:
+            - name: BITNAMI_DEBUG
+              value: "false"
+            - name: SONARQUBE_SKIP_BOOTSTRAP
+              value: "no"
+            - name: SONARQUBE_USERNAME
+              value: "user"
+            - name: SONARQUBE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sonar-sonarqube
+                  key: sonarqube-password
+            - name: SONARQUBE_EMAIL
+              value: "user@example.com"
+            - name: SONARQUBE_MIN_HEAP_SIZE
+              value: "1024m"
+            - name: SONARQUBE_MAX_HEAP_SIZE
+              value: "2048m"
+            - name: SONARQUBE_START_TIMEOUT
+              value: "150"
+            - name: SONARQUBE_DATABASE_HOST
+              value: "sonar-postgresql"
+            - name: SONARQUBE_DATABASE_PORT_NUMBER
+              value: "5432"
+            - name: SONARQUBE_DATABASE_NAME
+              value: "bitnami_sonarqube"
+            - name: SONARQUBE_DATABASE_USER
+              value: "bn_sonarqube"
+            - name: SONARQUBE_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sonar-postgresql
+                  key: password
+            - name: SONARQUBE_PORT_NUMBER
+              value: "9000"
+            - name: SONARQUBE_ELASTICSEARCH_PORT_NUMBER
+              value: "9001"
+          envFrom:
+          resources:
+            limits: {}
+            requests:
+              cpu: 100m
+              memory: 2048Mi
+          ports:
+            - name: http
+              containerPort: 9000
+            - name: elastic
+              containerPort: 9001
+          livenessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 100
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 100
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - mountPath: /bitnami/sonarqube
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: sonar-sonarqube

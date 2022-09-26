@@ -1,0 +1,53 @@
+---
+# Source: artifactory-oss/charts/artifactory/templates/artifactory-system-yaml.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: artifactory-systemyaml
+  labels:
+    app: artifactory
+    chart: artifactory-107.35.2
+    heritage: Helm
+    release: artifactory
+type: Opaque
+stringData:
+  system.yaml: |
+    router:
+      serviceRegistry:
+        insecure: false
+    shared:
+      logging:
+        consoleLog:
+          enabled: false
+      extraJavaOpts: >
+        -Dartifactory.access.client.max.connections=50
+        -Dartifactory.async.corePoolSize=8
+      database:
+        type: postgresql
+        url: "jdbc:postgresql://artifactory-postgresql:5432/artifactory"
+        driver: org.postgresql.Driver
+        username: "artifactory"
+    artifactory:
+      database:
+        maxOpenConnections: 80
+      tomcat:
+        maintenanceConnector:
+          port: 8091
+        connector:
+          maxThreads: 200
+          sendReasonPhrase: false
+          extraConfig: acceptCount="100"
+    frontend:
+      session:
+        timeMinutes: "30"
+    access:
+      database:
+        maxOpenConnections: 80
+      tomcat:
+        connector:
+          maxThreads: 50
+          sendReasonPhrase: false
+          extraConfig: acceptCount="100"
+    metadata:
+      database:
+        maxOpenConnections: 80

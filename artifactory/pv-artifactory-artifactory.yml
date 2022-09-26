@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-artifactory-artifactory
+  namespace: artifactory
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /persistent_volumes/pvc-artifactory/artifactory
+    type: ''
+  claimRef:
+    name: artifactory-volume-artifactory-0
+    namespace: artifactory

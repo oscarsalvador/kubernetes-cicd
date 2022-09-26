@@ -1,0 +1,238 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes-profile
+</help_text><element><id>UMLPackage</id><coordinates><x>10</x><y>0</y><w>950</w><h>930</h></coordinates><panel_attributes>minikube --profile cv1
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>40</y><w>260</w><h>330</h></coordinates><panel_attributes>kubectl -n gogs
+--
+bg=red
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>400</y><w>650</w><h>330</h></coordinates><panel_attributes>kubectl -n sonarqube
+--
+bg=yellow
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>80</y><w>110</w><h>60</h></coordinates><panel_attributes>ing-gogs
+--
+bg=blue
+valign=bottom
+halign=left
+transparency=90
+http://gogs.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>160</y><w>240</w><h>60</h></coordinates><panel_attributes>svc-gogs
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://svc-gogs.gogs.svc.cluster.local:3001
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>240</y><w>130</w><h>120</h></coordinates><panel_attributes>dep-gogs
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>50</x><y>280</y><w>110</w><h>60</h></coordinates><panel_attributes>container gogs
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 3000
+vol /data</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>180</x><y>240</y><w>100</w><h>60</h></coordinates><panel_attributes>pvc-gogs
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>10</x><y>760</y><w>950</w><h>170</h></coordinates><panel_attributes>mount storage:/persistent_volumes
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>20</x><y>790</y><w>110</w><h>60</h></coordinates><panel_attributes>pv-gogs
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+pvc-gogs
+storage/pvc-gogs</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>440</y><w>110</w><h>60</h></coordinates><panel_attributes>ing-sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://sonar.local
+http://elastic.local</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>520</y><w>310</w><h>60</h></coordinates><panel_attributes>svc-sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://svc-sonarqube.sonarqube.svc.cluster.local:80
+http://svc-sonarqube.sonarqube.svc.cluster.local:9001</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>600</y><w>170</w><h>120</h></coordinates><panel_attributes>dep-sonarqube
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>50</x><y>640</y><w>150</w><h>70</h></coordinates><panel_attributes>container sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 80
+port 9001
+vol /bitnami/sonarqube</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>220</x><y>600</y><w>130</w><h>60</h></coordinates><panel_attributes>pvc-sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>360</x><y>520</y><w>310</w><h>60</h></coordinates><panel_attributes>svc-postgresql
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://svc-postgresql.sonarqube.svc.cluster.local:5432
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>370</x><y>640</y><w>150</w><h>70</h></coordinates><panel_attributes>container postgresql
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 5432
+data-0
+vol /bitnami/postgresql</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>360</x><y>600</y><w>170</w><h>120</h></coordinates><panel_attributes>sts-postgresql
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>20</x><y>860</y><w>200</w><h>60</h></coordinates><panel_attributes>pv-sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+pvc-sonarqube
+storage/pvc-sonarqube/sonarqube</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>230</x><y>860</y><w>180</w><h>60</h></coordinates><panel_attributes>pv-postgre
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+data-0
+storage/pvc-sonarqube/postgre</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>220</x><y>670</y><w>130</w><h>50</h></coordinates><panel_attributes>sec-sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>540</x><y>670</y><w>130</w><h>50</h></coordinates><panel_attributes>sec-postgresql
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>220</x><y>440</y><w>130</w><h>50</h></coordinates><panel_attributes>sac-sonarqube
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>330</x><y>40</y><w>290</w><h>330</h></coordinates><panel_attributes>kubectl -n artifactory
+--
+bg=green
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>340</x><y>80</y><w>130</w><h>60</h></coordinates><panel_attributes>ing-artifactory
+--
+bg=blue
+valign=bottom
+halign=left
+transparency=90
+http://artifactory.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>340</x><y>160</y><w>270</w><h>60</h></coordinates><panel_attributes>nginx-service
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://nginx-service.artifactory.svc.cluster.local:80
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>340</x><y>230</y><w>130</w><h>120</h></coordinates><panel_attributes>helm
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+templates:
+    nginx
+    artifactory
+charts:
+    postgresql
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>450</x><y>790</y><w>180</w><h>60</h></coordinates><panel_attributes>pv-artifactory-postgre
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+artifactory-postgre-0
+storage/pvc-artifactory/postgre</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>250</x><y>790</y><w>190</w><h>60</h></coordinates><panel_attributes>pv-artifactory-artifactory
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+artifactory-artifactory-0
+storage/pvc-artifactory/artifactory</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>660</x><y>40</y><w>280</w><h>330</h></coordinates><panel_attributes>kubectl -n jenkins
+--
+bg=orange
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>670</x><y>80</y><w>110</w><h>60</h></coordinates><panel_attributes>ing-jenkins
+--
+bg=blue
+valign=bottom
+halign=left
+transparency=90
+http://jenkins.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>670</x><y>160</y><w>260</w><h>60</h></coordinates><panel_attributes>svc-jenkins
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://svc-jenkins.jenkins.svc.cluster.local:8080
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>680</x><y>280</y><w>130</w><h>60</h></coordinates><panel_attributes>container jenkins-local
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 8080
+vol /var/jenkins_home</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>830</x><y>240</y><w>100</w><h>60</h></coordinates><panel_attributes>pvc-jenkins
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>670</x><y>240</y><w>150</w><h>120</h></coordinates><panel_attributes>dep-jenkins
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>830</x><y>90</y><w>100</w><h>50</h></coordinates><panel_attributes>sac-jenkins
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>760</x><y>790</y><w>110</w><h>60</h></coordinates><panel_attributes>pv-jenkins
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+pvc-jenkins
+storage/pvc-jenkins</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>10</x><y>970</y><w>20</w><h>20</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element></diagram>

@@ -1,0 +1,154 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes-profile</help_text><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>660</w><h>870</h></coordinates><panel_attributes>minikube --profile app
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>20</x><y>400</y><w>620</w><h>330</h></coordinates><panel_attributes>kubectl -n app-mongo
+--
+bg=yellow
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>770</y><w>660</w><h>100</h></coordinates><panel_attributes>mount app-storage:/persistent_volumes
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>10</x><y>800</y><w>200</w><h>60</h></coordinates><panel_attributes>pv-app-mongo
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+pvc-app-mongo
+app-storage/pvc-app-mongo</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>440</y><w>160</w><h>60</h></coordinates><panel_attributes>ing-app-mongo-express
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://mongo-express.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>520</y><w>310</w><h>60</h></coordinates><panel_attributes>svc-mongo-express
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://mongo-express.app-mongo.svc.cluster.local:8081
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>600</y><w>170</w><h>120</h></coordinates><panel_attributes>dep-app-mongo-express
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>640</y><w>150</w><h>70</h></coordinates><panel_attributes>container mongoexpress
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 8081
+mongodb://mongo:27017
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>530</x><y>600</y><w>100</w><h>60</h></coordinates><panel_attributes>pvc-app-mongo
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+ 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>360</x><y>640</y><w>150</w><h>70</h></coordinates><panel_attributes>container mogo
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 27017
+vol /data/db
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>350</x><y>600</y><w>170</w><h>120</h></coordinates><panel_attributes>dep-app-mongo
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>210</x><y>670</y><w>130</w><h>50</h></coordinates><panel_attributes>sec-app-mongo
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>20</x><y>40</y><w>300</w><h>330</h></coordinates><panel_attributes>kubectl -n app-back
+--
+bg=green
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>350</x><y>40</y><w>290</w><h>330</h></coordinates><panel_attributes>kubectl -n app-front
+--
+bg=orange
+transparency=80
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>350</x><y>440</y><w>160</w><h>60</h></coordinates><panel_attributes>lt=..
+ing-app-mongo
+--
+lt=..
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://mongo.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>350</x><y>520</y><w>280</w><h>60</h></coordinates><panel_attributes>svc-mongo
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://mongo.app-mongo.svc.cluster.local:27017
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>80</y><w>160</w><h>60</h></coordinates><panel_attributes>ing-app-back
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://back.app.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>160</y><w>270</w><h>60</h></coordinates><panel_attributes>svc-app-back
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://back.app-mongo.svc.cluster.local:3000
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>30</x><y>240</y><w>170</w><h>120</h></coordinates><panel_attributes>dep-app-back
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>40</x><y>280</y><w>150</w><h>70</h></coordinates><panel_attributes>container app-back
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 3000
+mongodb://mongo:27017
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>210</x><y>240</y><w>100</w><h>50</h></coordinates><panel_attributes>sec-app-mongo
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>360</x><y>80</y><w>160</w><h>60</h></coordinates><panel_attributes>ing-app-front
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://front.app.local
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>360</x><y>160</y><w>270</w><h>60</h></coordinates><panel_attributes>svc-app-front
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+http://front.app-mongo.svc.cluster.local:8080
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>360</x><y>240</y><w>170</w><h>120</h></coordinates><panel_attributes>dep-app-front
+--
+bg=blue
+transparency=90
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>370</x><y>280</y><w>150</w><h>70</h></coordinates><panel_attributes>container app-front
+--
+bg=blue
+transparency=90
+valign=bottom
+halign=left
+port 8080
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>0</x><y>900</y><w>20</w><h>20</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element></diagram>

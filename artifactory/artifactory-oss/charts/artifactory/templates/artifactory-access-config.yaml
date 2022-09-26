@@ -1,0 +1,16 @@
+---
+# Source: artifactory-oss/charts/artifactory/templates/artifactory-access-config.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: artifactory-access-config
+  labels:
+    app: artifactory
+    chart: artifactory-107.35.2
+    heritage: Helm
+    release: artifactory
+type: Opaque
+stringData:
+  access.config.patch.yml: |
+    security:
+      tls: false

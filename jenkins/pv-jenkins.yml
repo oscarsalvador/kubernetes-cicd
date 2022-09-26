@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-jenkins-home
+  namespace: jenkins
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /persistent_volumes/pvc-jenkins/home
+    type: ''
+  claimRef:
+    name: pvc-jenkins-home
+    namespace: jenkins
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-jenkins-maven-repo
+  namespace: jenkins
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /persistent_volumes/pvc-jenkins/maven-repo
+    type: ''
+  claimRef:
+    name: pvc-jenkins-maven-repo
+    namespace: jenkins

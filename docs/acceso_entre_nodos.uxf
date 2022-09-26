@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>Space for diagram notes-profile
+</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>220</x>
+      <y>100</y>
+      <w>1000</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>Cluster
+--
+transparency=90
+
+bg=gray
+layer=-5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>410</x>
+      <y>140</y>
+      <w>770</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>Namespace
+--
+bg=red
+transparency=90
+
+layer=-5
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>810</x>
+      <y>180</y>
+      <w>390</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>Nodo 2
+--
+valign=bottom
+halign=left
+transparency=90
+
+bg=dark_gray
+layer=-4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>440</x>
+      <y>260</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 1
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP1:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>440</x>
+      <y>470</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 2
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP2:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>240</x>
+      <y>180</y>
+      <w>540</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>Nodo 1
+--
+transparency=90
+valign=bottom
+halign=left
+
+bg=dark_gray
+
+layer=-4
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>310</y>
+      <w>120</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;210.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>630</x>
+      <y>300</y>
+      <w>130</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>$curl IP2:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>630</x>
+      <y>510</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP2:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>300</y>
+      <w>120</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>450</x>
+      <y>400</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Dos contenedores en el mismo nodo se encuentran
+
+style=wordwrap
+fg=black
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>310</y>
+      <w>170</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;170.0;150.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>250</x>
+      <y>460</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Pueden tener el mismo puerto, porque tienen IPs distintas
+
+style=wordwrap
+fg=black
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>830</x>
+      <y>270</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 3
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP3:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>630</x>
+      <y>550</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP3:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>320</y>
+      <w>190</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>320</y>
+      <w>480</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;200.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1010</x>
+      <y>310</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP2:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>830</x>
+      <y>410</y>
+      <w>260</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>No se encuentran, porque la IP del contenedor depende de la IP del nodo.
+
+style=wordwrap
+fg=black
+
+
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>430</x>
+      <y>220</y>
+      <w>340</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>Pod 1
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>820</x>
+      <y>220</y>
+      <w>340</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Pod 2
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

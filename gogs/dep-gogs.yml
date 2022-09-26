@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-gogs
+  namespace: gogs
+  labels:
+    name: gogs
+spec:
+  selector:
+    matchLabels:
+      name: gogs
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: gogs
+    spec:
+      containers:
+      - name: gogs
+        image: gogs/gogs:latest
+        limits:
+        ports:
+        - name: port-gogs
+          containerPort: 3000
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: pvc-gogs

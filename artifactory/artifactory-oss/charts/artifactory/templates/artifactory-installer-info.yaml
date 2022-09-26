@@ -1,0 +1,14 @@
+---
+# Source: artifactory-oss/charts/artifactory/templates/artifactory-installer-info.yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: artifactory-installer-info
+  labels:
+    app: artifactory
+    chart: artifactory-107.35.2
+    heritage: Helm
+    release: artifactory
+data:
+  installer-info.json: |
+    {"productId": "Helm_artifactory-oss/107.35.2", "features": [ { "featureId": "Platform/art-oss-helm"}]}

@@ -1,0 +1,18 @@
+---
+# Source: sonarqube/templates/pvc.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sonar-sonarqube
+  namespace: "sonar"
+  labels:
+    app.kubernetes.io/name: sonarqube
+    helm.sh/chart: sonarqube-1.0.9
+    app.kubernetes.io/instance: sonar
+    app.kubernetes.io/managed-by: Helm
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10Gi"

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>Space for diagram notes-profile
+</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>260</x>
+      <y>150</y>
+      <w>630</w>
+      <h>770</h>
+    </coordinates>
+    <panel_attributes>Cluster
+--
+transparency=90
+
+bg=gray
+layer=-50</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>470</x>
+      <y>190</y>
+      <w>390</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>Namespace
+--
+bg=red
+transparency=90
+
+layer=-5
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>310</x>
+      <y>460</y>
+      <w>520</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Nodo 2
+--
+valign=bottom
+halign=left
+transparency=90
+
+bg=dark_gray
+layer=-4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>490</x>
+      <y>270</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 1
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1520</x>
+      <y>240</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1570</x>
+      <y>510</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>*Use case 3*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>650</x>
+      <y>310</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl ClusterIP:3002
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>500</x>
+      <y>510</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 3
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP3:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>640</x>
+      <y>550</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl ClusterIP:3001
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>280</x>
+      <y>230</y>
+      <w>550</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Nodo 1 (master)
+--
+transparency=90
+valign=bottom
+halign=left
+
+bg=dark_gray
+
+layer=-4
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>230</y>
+      <w>290</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+layer=-10
+fg=gray</panel_attributes>
+    <additional_attributes>120.0;330.0;10.0;130.0;40.0;110.0;40.0;10.0;270.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>230</y>
+      <w>290</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;90.0;10.0;100.0;30.0;80.0;30.0;10.0;270.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>580</x>
+      <y>680</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Servicio
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+ClusterIP
+
+proxy de cluster
+
+3001
+    - 3000???
+3002
+    - 3000???
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>290</x>
+      <y>480</y>
+      <w>160</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Trabaja a nivel de cluster, solo tiene que haber 1, no? Y lo corre el maestro, o cualquiera?
+
+style=wordwrap
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>370</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>320</x>
+      <y>270</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Servicio
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+ClusterIP
+
+proxy de nodo
+
+
+3001
+    - 3000???
+3002
+    - 3000???
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>320</x>
+      <y>590</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Servicio
+--
+valign=bottom
+halign=left
+
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+
+proxy de nodo
+ClusterIP
+3001
+    - 3000???
+3002
+    - 3000???
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

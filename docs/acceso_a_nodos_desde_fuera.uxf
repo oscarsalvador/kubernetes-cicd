@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>Space for diagram notes-profile
+</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>130</x>
+      <y>130</y>
+      <w>1020</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>Cluster
+--
+transparency=90
+
+bg=gray
+layer=-5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>320</x>
+      <y>170</y>
+      <w>770</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>Namespace
+--
+bg=red
+transparency=90
+
+layer=-5
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>730</x>
+      <y>210</y>
+      <w>390</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>Nodo 2
+--
+valign=bottom
+halign=left
+transparency=90
+
+bg=dark_gray
+layer=-4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>360</x>
+      <y>250</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 1
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP1:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>360</x>
+      <y>460</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 2
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP2:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>150</x>
+      <y>210</y>
+      <w>550</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>Nodo 1
+--
+transparency=90
+valign=bottom
+halign=left
+
+bg=dark_gray
+
+layer=-4
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>550</x>
+      <y>290</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP2:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>550</x>
+      <y>500</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP2:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>750</x>
+      <y>260</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contenedor 3
+--
+valign=bottom
+halign=left
+transparency=70
+layer=-2
+fg=black
+bg=cyan
+
+IP3:port 3000
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>550</x>
+      <y>540</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP3:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>320</y>
+      <w>170</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>310</y>
+      <w>480</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;200.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>940</x>
+      <y>300</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>$curl IP2:3000
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>750</x>
+      <y>400</y>
+      <w>260</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>No se encuentran, porque la IP del contenedor depende de la IP del nodo.
+
+style=wordwrap
+fg=black
+
+
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
